@@ -13,7 +13,8 @@
         "symfony/console": "^6.4 || ^7.1",
         "ratchet/pawl": "^0.4.1",
         "ramsey/uuid": "^4.7",
-        "react/event-loop": "^1.5"
+        "react/event-loop": "^1.5",
+        "php-ffmpeg/php-ffmpeg": "^1.1"
     },
     "autoload": {
         "psr-4": {

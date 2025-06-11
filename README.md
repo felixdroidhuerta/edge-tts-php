@@ -65,7 +65,7 @@ $tts->synthesize("Hello, world!", 'en-US-AriaNeural', [
 
 // Export synthesized audio in different formats
 $base64Audio = $tts->toBase64();   // Get audio as base64
-$tts->toFile("output.wav");        // Save audio to file
+$tts->toFile("output.mp3");        // Save audio to file
 $rawAudio = $tts->toRaw();         // Get raw audio stream
 ```
 
@@ -73,8 +73,19 @@ $rawAudio = $tts->toRaw();         // Get raw audio stream
 After synthesizing speech, you can export the audio in various formats:
 
 - ```toBase64```: Returns the audio as a Base64 string.
-- ```toFile```: Saves the audio to a specified file (e.g., "output.wav").
+ - ```toFile```: Saves the audio to a specified file (e.g., "output.mp3").
 - ```toRaw```: Returns the raw audio stream.
+
+### Converting to Telephony Formats
+
+After saving the MP3 output, you can convert it to common telephony formats
+directly in PHP using the `php-ffmpeg/php-ffmpeg` library. Supported formats
+include `mulaw_wav`, `alaw_wav`, `wav_8bit`, `wav_16bit`, `wav_hd`, `g722`,
+`g729` and `raw`.
+
+```php
+$tts->convertAudioFormat('output.mp3', 'mulaw_wav', 'output.wav');
+```
 
 ## Testing
 ```bash
